@@ -1,0 +1,16 @@
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+body {
+    padding-bottom: 64px;
+}
+
+.footer {
+    background-color: #46d8ff;
+    padding: 20px;
+    bottom: 0;
+    position: absolute;
+    width: 100%;
+}
