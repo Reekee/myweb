@@ -15,7 +15,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <!-- jquery -->
-    <script src="assets/jquery/jquery-3.5.1.slim.min.js"></script>
+    <script src="assets/jquery/jquery-3.2.1.min.js"></script>
     <!-- popper -->
     <script src="assets/popper/popper.min.js"></script>
     <!-- bootstrap -->
@@ -23,6 +23,8 @@
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
     <title>ระบบการกจัดการห้องสมุด</title>
     <link rel="shortcut icon" href="images/book.png">
+    <!-- fontawesome -->
+    <link rel="stylesheet" href="assets/fontawesome/css/font-awesome.min.css">
     <!-- index -->
     <link rel="stylesheet" href="assets/index.css">
     <script src="assets/index.js"></script>
