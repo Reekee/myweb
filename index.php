@@ -1,15 +1,9 @@
 <?php
-    session_start();
     include("config/autoload.php");
 
     if( !isset($_SESSION["username"]) ) {
         LinkTo("login.php");
     }
-
-
-    $sql = "SELECT * FROM member WHERE username='".$_SESSION["username"]."' ";
-    $rs = $DATABASE->QueryObj($sql);
-    $MEMBER = $rs[0];
 
     $page = ( isset($_GET["page"]) ) ? $_GET["page"] : "home";
 ?>
@@ -68,6 +62,20 @@
                 </li>
             </ul>
             <form class="form-inline my-2 my-lg-0">
+                <a href="./?page=cart" class="text-dark cart">
+                    <i class="fas fa-shopping-cart mr-3"></i>
+                    <span id="cart-number">
+                        <?php
+                            $sql = "  
+                                SELECT SUM(qty) as cart_num FROM `cart` WHERE member_id='".$MEMBER["member_id"]."' 
+                            ";
+                            $rs = $DATABASE->QueryObj($sql);
+                            if( sizeof($rs)==1 && $rs[0]["cart_num"]>0 ) {
+                                echo '<span class="cart-number">'.$rs[0]["cart_num"].'</span>';
+                            }
+                        ?>
+                    </span>
+                </a>
                 <div class="mr-4"><?php echo $MEMBER["member_name"]; ?> <?php echo $MEMBER["member_lname"]; ?></div>
                 <a href="logout.php" class="btn btn-outline-success my-2 my-sm-0">ออกจากระบบ</a>
             </form>

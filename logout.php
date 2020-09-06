@@ -1,8 +1,5 @@
 <?php
-    session_start();
-    session_destroy();
-
     include("config/autoload.php");
-
+    session_destroy();
     LinkTo("login.php");
     

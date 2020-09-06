@@ -24,6 +24,7 @@
 ?>
 <link rel="stylesheet" href="pages/<?php echo $page; ?>/view.css">
 <script src="pages/<?php echo $page; ?>/view.js"></script>
+<a href="./?page=book-add" class="btn btn-success mb-3 mt-3"><i class="fas fa-plus"></i> เพิ่มหนังสือ</a>
 <form action="" method="get" class="mb-4">
     <input type="text" class="form-control" name="search" value="<?php echo $search; ?>" placeholder="ค้นหา">
     <small class="form-text text-muted">ค้นหาข้อมูลหนังสือ โดยกรอก รหัสหนังสือ หรือชื่อ หรือผู้แต่ง
@@ -51,8 +52,11 @@
                             <td>'.$row["book_name"].'</td>
                             <td>'.$row["book_auth"].'</td>
                             <td>
-                                <button class="btn btn-link text-warning btn-add-cart" data-id="'.$row["book_id"].'">
-                                    ยืมหนังสือนี้
+                                <a class="btn btn-link text-warning" href="./?page=book-edit&book_id='.$row["book_id"].'">
+                                    <i class="fas fa-edit"></i>
+                                </a>
+                                <button class="btn btn-link text-danger btn-del" data-id="'.$row["book_id"].'">
+                                    <i class="fas fa-trash"></i>
                                 </button>
                             </td>
                         </tr>

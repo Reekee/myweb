@@ -1,5 +1,4 @@
 <?php
-    session_start();
     include("config/autoload.php");
 
 
@@ -71,7 +70,7 @@
         </div>
         <button type="submit" name="btn-login" class="btn btn-primary"><i class="fas fa-sign-in-alt"></i>
             Login</button>
-        <a href="#" class="btn btn-link"><i class="fas fa-user-plus"></i> Register</a>
+        <a href="./register.php" class="btn btn-link"><i class="fas fa-user-plus"></i> Register</a>
     </form>
 </body>
 
