@@ -1,12 +1,17 @@
 <?php
-    // if( isset($_GET["page"]) ) {
-    //     $page = $_GET["page"];
-    // } else {
-    //     $page = "home";
-    // }
+    session_start();
     include("config/autoload.php");
-    $page = ( isset($_GET["page"]) ) ? $_GET["page"] : "home";
 
+    if( !isset($_SESSION["username"]) ) {
+        LinkTo("login.php");
+    }
+
+
+    $sql = "SELECT * FROM member WHERE username='".$_SESSION["username"]."' ";
+    $rs = $DATABASE->QueryObj($sql);
+    $MEMBER = $rs[0];
+
+    $page = ( isset($_GET["page"]) ) ? $_GET["page"] : "home";
 ?>
 <!doctype html>
 <html lang="en">
@@ -24,7 +29,7 @@
     <title>ระบบการกจัดการห้องสมุด</title>
     <link rel="shortcut icon" href="images/book.png">
     <!-- fontawesome -->
-    <link rel="stylesheet" href="assets/fontawesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="assets/fontawesome/css/all.min.css">
     <!-- index -->
     <link rel="stylesheet" href="assets/index.css">
     <script src="assets/index.js"></script>
@@ -63,8 +68,8 @@
                 </li>
             </ul>
             <form class="form-inline my-2 my-lg-0">
-                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                <div class="mr-4"><?php echo $MEMBER["member_name"]; ?> <?php echo $MEMBER["member_lname"]; ?></div>
+                <a href="logout.php" class="btn btn-outline-success my-2 my-sm-0">ออกจากระบบ</a>
             </form>
         </div>
     </nav>

@@ -6,4 +6,14 @@
 	define("pass", "");
 	define("dbname", "db_myweb");
 	$DATABASE = new Database(host, user, pass, dbname);
+
+
+	function LinkTo($url) {
+		echo '
+			<script>
+				location.href = "'.$url.'";
+			</script>
+		';
+		exit();
+	}
 	

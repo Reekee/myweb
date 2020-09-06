@@ -21,5 +21,5 @@
         <label for="book_auth">ผู้แต่ง</label>
         <input type="text" class="form-control" id="book_auth" value="<?php echo $data["book_auth"]; ?>">
     </div>
-    <button type="submit" class="btn btn-warning"><i class="fas fa-accessible-icon"></i> ยืนยันการแก้ไข</button>
+    <button type="submit" class="btn btn-warning"><i class="fas fa-edit"></i> ยืนยันการแก้ไข</button>
 </form>

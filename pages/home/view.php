@@ -24,7 +24,7 @@
 ?>
 <link rel="stylesheet" href="pages/<?php echo $page; ?>/view.css">
 <script src="pages/<?php echo $page; ?>/view.js"></script>
-<a href="./?page=book-add" class="btn btn-success mb-3 mt-3">เพิ่มหนังสือ</a>
+<a href="./?page=book-add" class="btn btn-success mb-3 mt-3"><i class="fas fa-plus"></i> เพิ่มหนังสือ</a>
 <form action="" method="get" class="mb-4">
     <input type="text" class="form-control" name="search" value="<?php echo $search; ?>" placeholder="ค้นหา">
     <small class="form-text text-muted">ค้นหาข้อมูลหนังสือ โดยกรอก รหัสหนังสือ หรือชื่อ หรือผู้แต่ง
@@ -52,8 +52,12 @@
                             <td>'.$row["book_name"].'</td>
                             <td>'.$row["book_auth"].'</td>
                             <td>
-                                <a class="btn btn-link" href="./?page=book-edit&book_id='.$row["book_id"].'">แก้ไข</a>
-                                <button class="btn btn-link btn-del" data-id="'.$row["book_id"].'">ลบ</button>
+                                <a class="btn btn-link text-warning" href="./?page=book-edit&book_id='.$row["book_id"].'">
+                                    <i class="fas fa-edit"></i>
+                                </a>
+                                <button class="btn btn-link text-danger btn-del" data-id="'.$row["book_id"].'">
+                                    <i class="fas fa-trash"></i>
+                                </button>
                             </td>
                         </tr>
                     ';
@@ -69,3 +73,26 @@
         ?>
     </tbody>
 </table>
+
+
+
+<div id="popup-confirm" class="modal" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">คำยืนยัน ?</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p>คุณแน่ใจต้องการลบใช่หรือไม่ ?</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal"><i class="fas fa-times"></i>
+                    ยกเลิก</button>
+                <button type="button" class="btn btn-danger btn-confirm-del"><i class="fas fa-trash"></i> ตกลง</button>
+            </div>
+        </div>
+    </div>
+</div>

@@ -13,5 +13,5 @@
         <label for="book_auth">ผู้แต่ง</label>
         <input type="text" class="form-control" id="book_auth">
     </div>
-    <button type="submit" class="btn btn-success"><i class="fas fa-accessible-icon"></i> ยืนยันการเพิ่มข้อมูล</button>
+    <button type="submit" class="btn btn-success"><i class="fas fa-plus"></i> ยืนยันการเพิ่มข้อมูล</button>
 </form>
